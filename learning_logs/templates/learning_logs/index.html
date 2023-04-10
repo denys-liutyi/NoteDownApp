@@ -1,0 +1,21 @@
+{% extends "learning_logs/base.html" %}
+
+{% block page_header %}
+
+  <div class="jumbotron">
+    <h1 class="display-4">Вивчай. Спостегігай. Нотуй!</h1>
+
+    <p class="lead">Створи свій власний нотатник!
+      Записуй нові теми, які вивчаєш та роби по ним fвжливі нотатки.</p>
+    <p class="lead">У будь-який час, у будь-якому місці! Безкоштовно!</p>
+  {% if user.is_authenticated %}
+    <p class="lead">Ти вже зареєстрований. Переходь до списку своїх тем.</p>
+    <a class="btn btn-lg btn-primary" href="{% url 'learning_logs:topics' %}" role="button">Мої теми &raquo;</a>
+  </div>
+  {% else %}
+    <p class="lead">РЕЄСТРУЙСЯ та починай робити записи вже зараз!</p>
+    <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">Зареєструватися &raquo;</a>
+  </div>
+  {% endif %}
+
+{% endblock page_header %}
